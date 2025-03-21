@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# Lethe — Anime Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+\
+*A memory game powered by the Jiken API*
 
-Currently, two official plugins are available:
+## 🎮 About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Lethe is an anime-themed memory game that challenges your ability to recall and match characters. Simply search for your favorite anime, and Lethe will fetch characters from that anime from the Jiken API, to shuffle into a fun and engaging memory challenge.
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🔍 **Anime Character Search** – Fetch characters from any anime using the Jiken API.
+- 🎴 **Shuffled Memory Cards** – Cards are randomized for a unique game every time.
+- 🌟 **Sleek UI** – Aesthetic design optimized for smooth gameplay.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname
-    }
-  }
-});
-```
+## 🛠️ Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Frontend:** React, TypeScript, TailwindCSS
+- **Backend:** Jiken API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## 🕹️ Play
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules
-  }
-});
-```
+Just go on this: site and get playing!
+
+## 🎯 How to Play
+
+1. Search for an anime in the search bar.
+2. The game board will populate with shuffled character cards.
+3. Click on a card to shuffle the characters.
+4. If you click the same character twice YOU LOSE!
+
+## 💡 Future Plans
+
+- Leaderboard system
+- More animations and effects
+
+## 🤝 Contributing
+
+Pull requests are welcome! Feel free to open an issue for feature requests or bug reports.
+
+---
+
+✨ **Lethe – Can you remember them all?** ✨
+
