@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ]
+}
