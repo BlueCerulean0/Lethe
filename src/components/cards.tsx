@@ -28,9 +28,10 @@ function shuffleArr(arr: Daum[]) {
 
 interface Props {
   animeId: number;
+  dataID: number;
 }
 
-export function MakeCard({ animeId = 16 }: Props) {
+export function MakeCard({ animeId = 16, dataID }: Props) {
   const [character, setCharacter] = useState<Daum[]>([]);
   const [allCharacters, setAllCharacters] = useState<Daum[]>([]);
   const [clicked, setClicked] = useState<Daum[]>([]);
@@ -47,9 +48,6 @@ export function MakeCard({ animeId = 16 }: Props) {
       if (data === null) {
         setError(true);
       }
-      await new Promise<void>((resolved) => {
-        setTimeout(resolved, 1000);
-      });
       if (data) {
         setLoading(false);
       } else if (!error) {
@@ -57,6 +55,10 @@ export function MakeCard({ animeId = 16 }: Props) {
       } else {
         setLoading(true);
       }
+
+      await new Promise<void>((resolved) => {
+        setTimeout(resolved, 500);
+      });
 
       const eachChar: Daum[] = [];
       if (data?.data) {
@@ -71,7 +73,7 @@ export function MakeCard({ animeId = 16 }: Props) {
       setCharacter(eachChar.slice(0, 6));
     };
     fetchData();
-  }, []);
+  }, [dataID]);
 
   useEffect((): void => {
     const clickedNames = new Set(clicked.map((c) => c.character.name));

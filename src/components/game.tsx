@@ -52,7 +52,7 @@ export function Game({
 
   return (
     <div className="flex min-w-full h-auto bg-[rgba(46,44,44,0.31)]">
-      <div className="grid place-items-center min-h-screen auto-rows-auto grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6  gap-4 w-full p-4 mb-2">
+      <div className="grid place-items-center min-h-screen auto-rows-auto grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 w-full p-4 mb-2">
         {char.map((eachChar, index) => {
           return (
             <button

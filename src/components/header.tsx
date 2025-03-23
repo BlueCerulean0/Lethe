@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState, useRef } from 'react';
 
-export default function HeaderSearch() {
+interface Props {
+  quarry: string;
+  setQuarry: Dispatch<SetStateAction<string>>;
+}
+
+export default function HeaderSearch({ setQuarry }: Props) {
   const [isfold, setFold] = useState(true);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState('');
   function clicked(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     if (isfold) {
@@ -12,20 +19,46 @@ export default function HeaderSearch() {
   }
 
   return (
-    <header className="flex justify-between items-center sticky xl:fixed w-full rounded-b-2xl shadow-2xs p-5 z-20 bg-black/30 backdrop-blur-sm top-0 left-0 min-h-8 max-h-16 gap-10">
-      <p className="font-bold text-3xl xl:text-4xl">Lethe</p>
+    <header className="flex justify-between items-center sticky w-full rounded-b-2xl shadow-2xs p-5 z-20 bg-black/50 backdrop-blur-sm top-0 left-0 min-h-8 max-h-16 gap-4">
+      <div className="flex items-center justify-center gap-3">
+        <p className="font-bold text-3xl xl:text-4xl">Lethe</p>
+        <div className="flex w-12 p-2 overflow-hidden transition-all duration-300 md:hover:w-42 sm:hover:w-42 lg:hover:w-42 xl:hover:w-42">
+          <a
+            className="flex justify-center items-center gap-2"
+            href="https://github.com/BlueCerulean0/"
+            target="_blank"
+            rel="noopener noreferrer">
+            <svg
+              className="transition-transform duration-500 hover:rotate-360 hover:scale-122 hover:fill-cyan-300/80 focus:scale-122 focus:fill-cyan-300/80 cursor-pointer"
+              viewBox="0 0 16 16"
+              width="32"
+              height="32"
+              fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+            <p className="">@BlueCerulean0</p>
+          </a>
+        </div>
+      </div>
 
       <form className="flex justify-center items-center gap-1">
         <input
           type="text"
           name="anime"
           id="anime"
-          className={`rounded-lg outline-white text-md font-medium transition-all duration-300 ease-in-out  p-1  ${isfold ? 'w-0 pointer-events-none' : 'outline-3 bg-black/30 w-45 min-h-8'}`}
+          ref={inputRef}
+          className={`rounded-lg outline-white outline-2 text-md font-medium transition-all duration-400 ease-in-out ${isfold ? 'w-0 pointer-events-none opacity-0' : ' bg-black/30 w-48 min-h-8 p-1'}`}
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
         />
         <button
           type="submit"
-          onClick={clicked}
-          className="transition-transform duration-300 cursor-pointer hover:scale-105 active:rotate-90">
+          onClick={(event) => {
+            clicked(event);
+            if (inputRef.current) setQuarry(inputRef.current.value);
+            setValue('');
+          }}
+          className="transition-transform duration-300 cursor-pointer hover:scale-105 active:rotate-70">
           <svg
             viewBox="0 0 128 128"
             width="40px"

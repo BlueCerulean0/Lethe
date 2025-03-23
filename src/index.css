@@ -37,3 +37,26 @@ body::-webkit-scrollbar-thumb {
 
   border-radius: 20px;
 }
+
+#scrollSyn::-webkit-scrollbar {
+  width: 6px; /* Adjust width */
+  height: 6px;
+}
+
+#scrollSyn::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5); /* Change color */
+  border-radius: 10px;
+}
+
+#scrollSyn::-webkit-scrollbar-track {
+  background: transparent; /* Hide track */
+}
+
+#scrollSear::-webkit-scrollbar {
+  width: 6px;
+}
+
+#scrollSear::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
