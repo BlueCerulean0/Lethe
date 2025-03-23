@@ -6,7 +6,7 @@ import Search from './components/search.tsx';
 
 function App() {
   const [quarry, setQuarry] = useState('');
-  const [dataID, setDataId] = useState(100);
+  const [dataID, setDataId] = useState(49413);
 
   useEffect(() => {
     console.log(dataID);
@@ -15,7 +15,7 @@ function App() {
     <>
       <HeaderSearch quarry={quarry} setQuarry={setQuarry} />
       <Search quarry={quarry} setDataId={setDataId} />
-      <MakeCard animeId={dataID} dataID={dataID}/>
+      <MakeCard animeId={dataID} dataID={dataID} />
     </>
   );
 }
