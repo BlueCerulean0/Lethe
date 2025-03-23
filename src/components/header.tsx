@@ -29,7 +29,7 @@ export default function HeaderSearch({ setQuarry }: Props) {
             target="_blank"
             rel="noopener noreferrer">
             <svg
-              className="transition-transform duration-500 hover:rotate-360 hover:scale-122 hover:fill-cyan-300/80 focus:scale-122 focus:fill-cyan-300/80 cursor-pointer"
+              className="transition-transform duration-500 hover:rotate-360 hover:scale-122 hover:fill-[rgb(147,231,196)] focus:scale-122 focus:fill-cyan-300/80 cursor-pointer"
               viewBox="0 0 16 16"
               width="32"
               height="32"

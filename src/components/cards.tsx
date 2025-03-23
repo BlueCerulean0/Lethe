@@ -99,15 +99,17 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
 
     if (clicked.length === 6) {
       setWin(true);
+      console.log('won and reset!');
+      setClicked([]);
     }
   }, [level, clicked, allCharacters]);
 
   function resetGame(): void {
     setCharacter(allCharacters.slice(0, 6));
-    setLevel(1);
-    setWin(false);
-    setGameOver(false);
     setClicked([]);
+    setLevel(1);
+    setGameOver(false);
+    setWin(false);
   }
   if (loading) {
     return (
@@ -156,6 +158,7 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
           setGameOver={setGameOver}
           gameOver={gameOver}
           clicked={clicked}
+          win={win}
         />
       </div>
     );

@@ -10,6 +10,7 @@ interface Props {
   clicked: Daum[];
   setGameOver: Dispatch<SetStateAction<boolean>>;
   gameOver: boolean;
+  win: boolean;
 }
 
 export function Game({
@@ -17,7 +18,8 @@ export function Game({
   setLevel,
   setClicked,
   setGameOver,
-  gameOver
+  gameOver,
+  win
 }: Props): React.ReactElement {
   const [allClicked, setAllClicked] = useState(new Map<string, Daum>());
   const [key, setKey] = useState('');
@@ -40,11 +42,17 @@ export function Game({
   }
   React.useEffect(() => {
     if (allClicked.has(key)) {
-      setGameOver(true);
-      setKey('');
       setAllClicked(new Map());
+      setKey('');
+      setGameOver(true);
     }
   }, [key, allClicked]);
+
+  React.useEffect(() => {
+    if (win) {
+      setAllClicked(new Map());
+    }
+  }, [win]);
 
   React.useEffect(() => {
     setClicked(() => [...allClicked.values()]);
