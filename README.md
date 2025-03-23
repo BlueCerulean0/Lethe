@@ -20,7 +20,7 @@ Lethe is an anime-themed memory game that challenges your ability to recall and 
 
 ## 🕹️ Play
 
-Just go on this: site and get playing!
+Just go on this site: https://blue-lethe.netlify.app/ and get playing!
 
 ## 🎯 How to Play
 
