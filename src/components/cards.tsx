@@ -2,6 +2,10 @@ import { Daum, CharacterResponse } from './characterInterface.ts';
 import { useEffect, useState } from 'react';
 import { Game } from './game.tsx';
 import End from './endScr.tsx';
+import loadingGIF from '/src/assets/loading.gif';
+import errorPNG from '/src/assets/error.png';
+import lostGIF from '/src/assets/lost.gif';
+import wonGIG from '/src/assets/won.gif';
 
 async function fetchCharacters(animeId: number): Promise<Promise<CharacterResponse> | null> {
   try {
@@ -73,6 +77,7 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
       setCharacter(eachChar.slice(0, 6));
     };
     fetchData();
+    resetGame();
   }, [dataID]);
 
   useEffect((): void => {
@@ -107,7 +112,7 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
   if (loading) {
     return (
       <div className="flex flex-col justify-center items-center w-[100%] h-[100vh] text-6xl font-medium bg-black/40">
-        <img className="w-50" src="/src/assets/loading.gif" alt="loading.png" />
+        <img className="w-50" src={loadingGIF} alt="loading.png" />
         <p className="mb-40">Loading...</p>
       </div>
     );
@@ -120,7 +125,7 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
           reset={() => window.location.reload()}>
           <img
             className="bg-cover bg-center w-35 bg-no-repeat bg-fixed"
-            src="/src/assets/error.png"
+            src={errorPNG}
             alt="Error"
           />
         </End>
@@ -132,14 +137,14 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
         <End change={gameOver} msg={'You Lose!'} score={`Score: ${level - 2}`} reset={resetGame}>
           <img
             className="bg-cover bg-center w-35 bg-no-repeat bg-fixed"
-            src="/src/assets/lost.gif"
+            src={lostGIF}
             alt="you lose"
           />
         </End>
         <End change={win} msg={'You Win'} score={`Score: ${level - 1}`} reset={resetGame}>
           <img
             className="bg-cover bg-center w-35 bg-no-repeat bg-fixed"
-            src="/src/assets/won.gif"
+            src={wonGIG}
             alt="you win"
           />
         </End>
