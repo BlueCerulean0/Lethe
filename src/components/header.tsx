@@ -19,7 +19,7 @@ export default function HeaderSearch({ setQuarry }: Props) {
   }
 
   return (
-    <header className="flex justify-between items-center sticky w-full rounded-b-2xl shadow-2xs p-5 z-20 bg-black/50 backdrop-blur-sm top-0 left-0 min-h-8 max-h-16 gap-4">
+    <header className="flex justify-between items-center sticky w-full rounded-b-2xl shadow-2xs p-5 z-20 bg-black/50 backdrop-blur-sm top-0 left-0 min-h-8 max-h-16 gap-4 overflow-x-hidden">
       <div className="flex items-center justify-center gap-3">
         <p className="font-bold text-3xl xl:text-4xl">Lethe</p>
         <div className="flex w-12 p-2 overflow-hidden transition-all duration-300 md:hover:w-42 sm:hover:w-42 lg:hover:w-42 xl:hover:w-42">
@@ -41,13 +41,14 @@ export default function HeaderSearch({ setQuarry }: Props) {
         </div>
       </div>
 
-      <form className="flex justify-center items-center gap-1">
+      <form
+        className={`flex justify-center items-center gap-1 sm:relative ${!isfold ? 'absolute right-2' : ''}`}>
         <input
           type="text"
           name="anime"
           id="anime"
           ref={inputRef}
-          className={`rounded-lg outline-white outline-2 text-md font-medium transition-all duration-400 ease-in-out ${isfold ? 'w-0 pointer-events-none opacity-0' : ' bg-black/30 w-48 min-h-8 p-1'}`}
+          className={`rounded-lg outline-white outline-2 text-md font-medium transition-all duration-300 sm:duration-400 ease-in-out ${isfold ? 'w-0 pointer-events-none opacity-0' : ' sm:bg-black/30 bg-black/80 sm:w-48 w-70 min-h-10 p-1 '}`}
           value={value}
           onChange={(event) => setValue(event.target.value)}
         />
@@ -58,7 +59,7 @@ export default function HeaderSearch({ setQuarry }: Props) {
             if (inputRef.current) setQuarry(inputRef.current.value);
             setValue('');
           }}
-          className="transition-transform duration-300 cursor-pointer hover:scale-105 active:rotate-70">
+          className="transition-transform duration-300 cursor-pointer hover:scale-105 active:rotate-70 z-50">
           <svg
             viewBox="0 0 128 128"
             width="40px"
