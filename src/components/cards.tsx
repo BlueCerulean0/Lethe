@@ -31,11 +31,10 @@ function shuffleArr(arr: Daum[]) {
 }
 
 interface Props {
-  animeId: number;
   dataID: number;
 }
 
-export function MakeCard({ animeId = 16, dataID }: Props) {
+export function MakeCard({ dataID }: Props) {
   const [character, setCharacter] = useState<Daum[]>([]);
   const [allCharacters, setAllCharacters] = useState<Daum[]>([]);
   const [clicked, setClicked] = useState<Daum[]>([]);
@@ -46,8 +45,10 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
   const [error, setError] = useState(false);
 
   useEffect((): void => {
+    setClicked([]);
+    setAllCharacters([]);
     const fetchData = async (): Promise<void> => {
-      const data = await fetchCharacters(animeId);
+      const data = await fetchCharacters(dataID);
 
       if (data === null) {
         setError(true);
@@ -99,8 +100,6 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
 
     if (clicked.length === 6) {
       setWin(true);
-      console.log('won and reset!');
-      setClicked([]);
     }
   }, [level, clicked, allCharacters]);
 
@@ -159,6 +158,7 @@ export function MakeCard({ animeId = 16, dataID }: Props) {
           gameOver={gameOver}
           clicked={clicked}
           win={win}
+          dataID={dataID}
         />
       </div>
     );

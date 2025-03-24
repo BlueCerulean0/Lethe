@@ -15,7 +15,7 @@ function App() {
     <>
       <HeaderSearch quarry={quarry} setQuarry={setQuarry} />
       <Search quarry={quarry} setDataId={setDataId} />
-      <MakeCard animeId={dataID} dataID={dataID} />
+      <MakeCard dataID={dataID} />
     </>
   );
 }

@@ -11,6 +11,7 @@ interface Props {
   setGameOver: Dispatch<SetStateAction<boolean>>;
   gameOver: boolean;
   win: boolean;
+  dataID: number;
 }
 
 export function Game({
@@ -19,7 +20,8 @@ export function Game({
   setClicked,
   setGameOver,
   gameOver,
-  win
+  win,
+  dataID
 }: Props): React.ReactElement {
   const [allClicked, setAllClicked] = useState(new Map<string, Daum>());
   const [key, setKey] = useState('');
@@ -49,10 +51,8 @@ export function Game({
   }, [key, allClicked]);
 
   React.useEffect(() => {
-    if (win) {
-      setAllClicked(new Map());
-    }
-  }, [win]);
+    setAllClicked(new Map());
+  }, [win, dataID]);
 
   React.useEffect(() => {
     setClicked(() => [...allClicked.values()]);
