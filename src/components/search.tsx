@@ -24,17 +24,15 @@ export default function Search({ quarry, setDataId }: Props) {
         animeResArr = animeResArr.filter((value) => {
           !(value.status === 'Music');
         });
+
         setFold(true);
         setSearchResults(data.data);
       }
-      console.log(data?.data);
     };
     fetchData();
   }, [quarry]);
 
-  useEffect(() => {
-    console.log('Mounting again!');
-  }, [searchResults, fold]);
+  // useEffect(() => {}, [searchResults, fold]);
 
   useEffect(() => {
     function handleClickout(event: MouseEvent) {
@@ -62,7 +60,7 @@ export default function Search({ quarry, setDataId }: Props) {
             key={index}
             onClick={() => setDataId(value.mal_id)}>
             <img
-              className="object-cover w-40 max-h-55 xl:w-40 rounded-xl cursor-pointer"
+              className="object-cover w-30 max-h-55 xl:w-40 rounded-xl cursor-pointer"
               src={`${value.images.jpg.image_url}`}
               alt=""
               onClick={() => setFold(false)}
@@ -100,7 +98,7 @@ async function animeSearch(quarry: string) {
     sort: 'desc'
     // type: 'tv,movie,ova,special,ona'
   });
-  console.log(params.toString());
+
   try {
     const response = await fetch(`https://api.jikan.moe/v4/anime?${[params]}`);
 

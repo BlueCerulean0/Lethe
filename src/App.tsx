@@ -9,7 +9,7 @@ function App() {
   const [dataID, setDataId] = useState(49413);
 
   useEffect(() => {
-    console.log(dataID);
+    console.log('Anime MAL_id: ', dataID);
   }, [dataID]);
   return (
     <>
