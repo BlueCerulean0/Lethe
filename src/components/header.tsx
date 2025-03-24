@@ -19,7 +19,7 @@ export default function HeaderSearch({ setQuarry }: Props) {
   }
 
   return (
-    <header className="flex justify-between items-center sticky w-full rounded-b-2xl shadow-2xs p-5 z-20 bg-black/50 backdrop-blur-sm top-0 left-0 min-h-8 max-h-16 gap-4 overflow-x-hidden">
+    <header className="flex justify-between items-center sticky w-full rounded-b-2xl shadow-2xs p-5 z-20 bg-black/50 backdrop-blur-sm top-0 left-0 min-h-8 max-h-16 gap-4 ">
       <div className="flex items-center justify-center gap-3">
         <p className="font-bold text-3xl xl:text-4xl">Lethe</p>
         <div className="flex w-12 p-2 overflow-hidden transition-all duration-300 md:hover:w-42 sm:hover:w-42 lg:hover:w-42 xl:hover:w-42">
